@@ -26,11 +26,13 @@ $("#currentDay").text(day);
 for (var i = 0; i < hour.length; i++) {
     var timeBlockDiv = $("<div>");
     var pTag = $("<p>");
-    timeBlockDiv.addClass("row");
+    timeBlockDiv.addClass("row time-block hour");
     timeBlockDiv.attr("data-hour", hour[i]);
     pTag.text(hour[i]).addClass("col-sm-2 hour");
     //console.log(this);
 
+    //if else statement
+    //if()
     var note = $("<textarea>").addClass("col-sm-8 textarea");
 
     var save = $("<div>").addClass("col-sm-2 saveBtn").text("Save");

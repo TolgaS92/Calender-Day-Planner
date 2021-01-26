@@ -24,5 +24,5 @@
 - ![CSS Validated](./assets/screenshots/..)
 
 ## Link
-1. [github.io](https://tolgas92.github.io/Day-Planner/)
+1. [github.io](https://tolgas92.github.io/Calender-Day-Planner/)
 2. [github](https://github.com/TolgaS92/Day-Planner)
