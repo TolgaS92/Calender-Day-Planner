@@ -40,4 +40,14 @@ for (var i = 0; i < hour.length; i++) {
     timeBlockDiv.append(pTag, note, save);
     $(".container").append(timeBlockDiv);
     //console.log(this);
+
+    if (hour[i] < time) {
+        console.log("past time");
+    }
+    else if (hour[i] = time) {
+        console.log("present time");
+    }
+    else {
+        console.log("future")
+    }
 }
