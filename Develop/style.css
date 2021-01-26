@@ -1,10 +1,10 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-  line-height: 5;
+  line-height: 2;
 }
 
-textarea{
+.textarea{
   background: transparent;
   border: none;
   resize: none;
