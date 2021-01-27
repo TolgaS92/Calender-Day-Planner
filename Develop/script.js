@@ -40,9 +40,9 @@ for (var i = 0; i < hour.length; i++) {
     pTag.text(hour[i]).addClass("col-sm-2 hour");
     //console.log(this);
 
-    let note = $("<textarea>").addClass("col-sm-8 textarea");
+    let note = $("<textarea>").addClass(`col-sm-8 textarea-${i + 8} textbox`);
 
-    let save = $("<div>").addClass("col-sm-2 saveBtn").text("Save");
+    let save = $("<div>").addClass("col-sm-2 saveBtn").attr("data-hour", hour[i]).text("Save");
 
 
     timeBlockDiv.append(pTag, note, save);
@@ -68,3 +68,24 @@ for (var i = 0; i < hour.length; i++) {
     timeBlockDiv.append(pTag, note, save);
     $(".container").append(timeBlockDiv);
 }
+
+$(".saveBtn").on("click", function () {
+    //console.log($(this).data("hour")); // it gets the actual hour..
+    let infoKey = $(this).data("hour");
+    //It gets first two digits of the time..
+    let firstTwo = infoKey.slice(0, 2);
+    //console.log(firstTwo);
+    let textInit = $(`.textarea-${firstTwo}`).val();
+    //console.log(textInit);
+    //let infoValue = $(this).data("<textarea>", "");
+    //console.log(infoValue);
+
+    $(`.textarea-${firstTwo}`).on("click", function (event) {
+        event.preventDefault();
+
+        localStorage.getItem(firstTwo, textInit);
+
+    });
+
+});
+

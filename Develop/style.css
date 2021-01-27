@@ -4,7 +4,7 @@ body {
   line-height: 2;
 }
 
-.textarea{
+.textbox{
   background: transparent;
   border: none;
   resize: none;
