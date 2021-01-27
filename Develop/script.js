@@ -70,9 +70,6 @@ for (var i = 0; i < hour.length; i++) {
         timeBlockDiv.addClass("present");
     }
 
-
-    timeBlockDiv.append(pTag, note, save);
-    $(".container").append(timeBlockDiv);
 }
 
 $(".saveBtn").on("click", function () {
