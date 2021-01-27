@@ -81,12 +81,12 @@ $(".saveBtn").on("click", function () {
     let textInit = $(`.textarea-${firstTwo}`).val();
     console.log(textInit);
     //console.log(infoValue);
-    localStorage.setItem(firstTwo, textInit);
+    window.localStorage.setItem(firstTwo, textInit);
 
     $(`.textarea-${firstTwo}`).on("click", function (event) {
         event.preventDefault();
 
-        localStorage.getItem(firstTwo, textInit);
+        window.localStorage.getItem(firstTwo, textInit);
 
     });
 
