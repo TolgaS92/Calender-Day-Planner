@@ -30,8 +30,13 @@ $("#currentTime").text(time);
 $("#currentDate").text(date);
 $("#currentDay").text(day);
 
+
+
+//for loop for the every hour, creating div-p, and the save button
 for (var i = 0; i < hour.length; i++) {
+    //All block for the scheduler div's
     let timeBlockDiv = $("<div>");
+    //for hour variable
     let pTag = $("<p>");
     // to catch the actual time zone hour variable starts with 8am = 0+8 = i + 8
     let hr = i + 8;
@@ -40,11 +45,12 @@ for (var i = 0; i < hour.length; i++) {
     pTag.text(hour[i]).addClass("col-sm-2 hour");
     //console.log(this);
 
+    // textarea
     let note = $("<textarea>").addClass(`col-sm-8 textarea-${i + 8} textbox`);
-
+    // savebutton 
     let save = $("<div>").addClass("col-sm-2 saveBtn").attr("data-hour", hour[i]).text("Save");
 
-
+    // Appending the buttons that created on line 40, 49, 51---
     timeBlockDiv.append(pTag, note, save);
     $(".container").append(timeBlockDiv);
     //console.log(timeBlockDiv);
@@ -74,11 +80,11 @@ $(".saveBtn").on("click", function () {
     let infoKey = $(this).data("hour");
     //It gets first two digits of the time..
     let firstTwo = infoKey.slice(0, 2);
-    //console.log(firstTwo);
+    console.log(firstTwo);
     let textInit = $(`.textarea-${firstTwo}`).val();
-    //console.log(textInit);
-    //let infoValue = $(this).data("<textarea>", "");
+    console.log(textInit);
     //console.log(infoValue);
+    localStorage.setItem(firstTwo, textInit);
 
     $(`.textarea-${firstTwo}`).on("click", function (event) {
         event.preventDefault();
