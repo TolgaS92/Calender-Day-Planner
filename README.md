@@ -16,12 +16,11 @@
 
 ## ScreenShots
 
-
+![Schedule table](./Assets/screenshots/Schedule.jpg)
 
 # HTML validator
 
-- ![HTML Validated](./assets/screenshots/..)
-- ![CSS Validated](./assets/screenshots/..)
+- ![HTML Validated](./Assets/screenshots/htmlvalidated.jpg)
 
 ## Link
 1. [github.io](https://tolgas92.github.io/Calender-Day-Planner/)

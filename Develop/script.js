@@ -1,21 +1,28 @@
 //time, date, day variables
-const time = moment().format('h:mm a');
+const time = moment().format('H:mm a');
 const date = moment().format("MMMM Do YYYY");
 const day = moment().format('dddd');
+
+//to catch real time
+const currentHour = moment().format('H');
+
 // schedule hours
 const hour = [
+    "08.00 AM",
     "09.00 AM",
     "10.00 AM",
     "11.00 AM",
     "12.00 PM",
-    "01.00 PM",
-    "02.00 PM",
-    "03.00 PM",
-    "04.00 PM",
-    "05.00 PM",
-    "06.00 PM",
-    "07.00 PM",
-    "08.00 PM",
+    "13.00 PM",
+    "14.00 PM",
+    "15.00 PM",
+    "16.00 PM",
+    "17.00 PM",
+    "18.00 PM",
+    "19.00 PM",
+    "20.00 PM",
+    "21.00 PM",
+    "22.00 PM"
 ]
 
 // time, date, day variables prints to html
@@ -24,30 +31,40 @@ $("#currentDate").text(date);
 $("#currentDay").text(day);
 
 for (var i = 0; i < hour.length; i++) {
-    var timeBlockDiv = $("<div>");
-    var pTag = $("<p>");
+    let timeBlockDiv = $("<div>");
+    let pTag = $("<p>");
+    // to catch the actual time zone hour variable starts with 8am = 0+8 = i + 8
+    let hr = i + 8;
     timeBlockDiv.addClass("row time-block hour");
     timeBlockDiv.attr("data-hour", hour[i]);
     pTag.text(hour[i]).addClass("col-sm-2 hour");
     //console.log(this);
 
-    //if else statement
-    //if()
-    var note = $("<textarea>").addClass("col-sm-8 textarea");
+    let note = $("<textarea>").addClass("col-sm-8 textarea");
 
-    var save = $("<div>").addClass("col-sm-2 saveBtn").text("Save");
+    let save = $("<div>").addClass("col-sm-2 saveBtn").text("Save");
+
 
     timeBlockDiv.append(pTag, note, save);
     $(".container").append(timeBlockDiv);
-    //console.log(this);
+    //console.log(timeBlockDiv);
 
-    if (hour[i] < time) {
+
+    //if - else conditions
+    if (hr < currentHour) {
         console.log("past time");
+        timeBlockDiv.addClass("past");
     }
-    else if (hour[i] = time) {
-        console.log("present time");
+    else if (hr > currentHour) {
+        console.log("future time");
+        timeBlockDiv.addClass("future");
     }
     else {
-        console.log("future")
+        console.log("present time");
+        timeBlockDiv.addClass("present");
     }
+
+
+    timeBlockDiv.append(pTag, note, save);
+    $(".container").append(timeBlockDiv);
 }
