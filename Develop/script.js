@@ -33,7 +33,7 @@ $("#currentDay").text(day);
 
 
 //for loop for the every hour, creating div-p, and the save button
-for (var i = 0; i < hour.length; i++) {
+for (let i = 0; i < hour.length; i++) {
     //All block for the scheduler div's
     let timeBlockDiv = $("<div>");
     //for hour variable
@@ -70,25 +70,13 @@ for (var i = 0; i < hour.length; i++) {
         timeBlockDiv.addClass("present");
     }
 
+    var toDo = localStorage.getItem(hour[i]);
+    note.val(toDo);
 }
 
-$(".saveBtn").on("click", function () {
-    //console.log($(this).data("hour")); // it gets the actual hour..
-    let infoKey = $(this).data("hour");
-    //It gets first two digits of the time..
-    let firstTwo = infoKey.slice(0, 2);
-    console.log(firstTwo);
-    let textInit = $(`.textarea-${firstTwo}`).val();
-    console.log(textInit);
-    //console.log(infoValue);
-    window.localStorage.setItem(firstTwo, textInit);
-
-    $(`.textarea-${firstTwo}`).on("click", function (event) {
-        event.preventDefault();
-
-        window.localStorage.getItem(firstTwo, textInit);
-
-    });
-
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    var toDo = $(this).siblings("textarea").val();
+    var actualHour = $(this).siblings("p").text();
+    localStorage.setItem(actualHour, toDo)
 });
-
