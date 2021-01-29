@@ -70,10 +70,11 @@ for (let i = 0; i < hour.length; i++) {
         timeBlockDiv.addClass("present");
     }
 
+    //GetItem on the page if even its refresh(it stays in for loop)
     var toDo = localStorage.getItem(hour[i]);
     note.val(toDo);
 }
-
+//SetItem in the localstorage which given by user
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
     var toDo = $(this).siblings("textarea").val();
